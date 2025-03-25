@@ -3,16 +3,12 @@ import numpy as np
 import math
 
 # Datos de calibración directamente en el código
-camera_matrix = np.array([
-    [1455.5428673773379, 0.0, 980.4199586143592],
-    [0.0, 1457.3455869579307, 546.1515511461722],
-    [0.0, 0.0, 1.0]
-], dtype=np.float32)
+camera_matrix = np.array([[674.08314922,   0.0,327.27172314],
+ [  0.0,         681.61295636, 190.5248409 ],
+ [  0.0,           0.0,           1.0        ]], dtype=np.float32)
 
-dist_coeffs = np.array([
-    [0.13735963148970454, -0.7799725541645359, 0.0020087290833629623, 
-     -0.00029266933856838997, 1.0552829276882483]
-], dtype=np.float32)
+dist_coeffs = np.array(
+    [[ 0.14443548, -0.22749092, -0.02863821, -0.0014835,   0.29094608]], dtype=np.float32)
 
 # Variables globales para el manejo de eventos del mouse
 drawing = False
@@ -48,7 +44,7 @@ def main():
     
     # URL de la cámara
     url = "http://192.168.80.78:8080/video"
-    cap = cv2.VideoCapture(url)
+    cap = cv2.VideoCapture(3)
     
     # Verificar si se abrió correctamente
     if not cap.isOpened():

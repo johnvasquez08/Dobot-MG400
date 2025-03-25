@@ -7,8 +7,8 @@ from datetime import datetime
 class CameraCalibrator:
     def __init__(self):
         # Configuración de carpetas
-        self.calibration_folder = "C:\Users\johnd\Downloads\Dobot MG400-20250325T192116Z-001\Dobot MG400\calibration_images"
-        self.undistorted_folder = "undistorted_images"
+        self.calibration_folder = "C:/Users/johnd/Downloads/Dobot MG400-20250325T192116Z-001/Dobot MG400/calibration_images"
+        self.undistorted_folder = "C:/Users/johnd/Downloads/Dobot MG400-20250325T192116Z-001/Dobot MG400/undistorted_images"
         
         # Crear carpetas si no existen
         os.makedirs(self.calibration_folder, exist_ok=True)
@@ -18,7 +18,7 @@ class CameraCalibrator:
         self.image_count = 0
         
         # Parámetros del tablero de ajedrez (ajustar según tu tablero)
-        self.chessboard_size = (2, 3)  # Número de esquinas internas
+        self.chessboard_size = (5, 7)  # Número de esquinas internas
         
         # Preparar puntos objeto (0,0,0), (1,0,0), (2,0,0), ...
         self.objp = np.zeros((self.chessboard_size[0] * self.chessboard_size[1], 3), np.float32)
@@ -34,6 +34,7 @@ class CameraCalibrator:
     
     def start_capture(self):
         cap = cv2.VideoCapture(3)
+        
         
         if not cap.isOpened():
             print("Error: No se pudo abrir la cámara.")

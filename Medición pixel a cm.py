@@ -32,7 +32,7 @@ def main():
     
     # Solicitar la URL del video al usuario
     url = "http://192.168.80.78:8080/video"
-    cap = cv2.VideoCapture(url)
+    cap = cv2.VideoCapture(3)
     
     # Verificar si se abrió correctamente
     if not cap.isOpened():

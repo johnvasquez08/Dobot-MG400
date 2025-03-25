@@ -1,0 +1,19 @@
+import bisect
+IL = 111.657
+Temp_operacion = 41
+FP = 0.82
+
+# Definir los límites de los rangos y sus valores asociados
+rangos_temperatura = [20, 25, 30, 35, 40, 41, 45, 50]  # Rangos ordenados
+FactorCorrecion = [1.05, 1.00, 0.94, 0.88, 0.82, 0.75]  # Valores asignados a cada rango
+
+def determinar_rango(valor):
+    indice = bisect.bisect_left(rangos_temperatura, valor) - 1  # Usamos bisect_left en lugar de bisect_right
+    return FactorCorrecion[indice]
+
+# Leer el valor
+FcorrecionSeleccionado = determinar_rango(Temp_operacion)
+I_max = IL / FcorrecionSeleccionado
+print(I_max)
+
+

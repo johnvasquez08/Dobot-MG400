@@ -3,12 +3,12 @@ import numpy as np
 import math
 
 # Datos de calibración directamente en el código
-camera_matrix = np.array([[674.08314922,   0.0,327.27172314],
- [  0.0,         681.61295636, 190.5248409 ],
+camera_matrix = np.array([[653.04080082,   0.0,         361.37645218],
+ [  0.0,         873.17495949, 243.84850055],
  [  0.0,           0.0,           1.0        ]], dtype=np.float32)
 
 dist_coeffs = np.array(
-    [[ 0.14443548, -0.22749092, -0.02863821, -0.0014835,   0.29094608]], dtype=np.float32)
+    [[ 0.20966857, -0.27011417, -0.02140793, -0.00045373,  0.16516693]], dtype=np.float32)
 
 # Variables globales para el manejo de eventos del mouse
 drawing = False

@@ -51,17 +51,15 @@ class CameraCalibrator:
                 print("Error: No se pudo capturar el frame.")
                 break
             
-            # Mostrar contador de imágenes
+            frame = cv2.resize(frame, (640, 640))  # Redimensionar a 640x640
+            
             text = f"Imágenes capturadas: {self.image_count}"
             cv2.putText(frame, text, (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
             
-            # Mostrar frame
             cv2.imshow(self.window_name, frame)
             
-            # Capturar tecla
             key = cv2.waitKey(1) & 0xFF
             
-            # Procesar tecla
             if key == ord('f'):
                 self.capture_image(frame)
             elif key == ord('x'):
